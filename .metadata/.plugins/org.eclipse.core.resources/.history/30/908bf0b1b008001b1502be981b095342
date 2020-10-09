@@ -1,0 +1,5 @@
+package com.balanceservice.bean;
+
+public class Department {
+
+}

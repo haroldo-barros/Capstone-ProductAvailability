@@ -1,0 +1,10 @@
+package com.availability.demo;
+
+import org.springframework.cloud.netflix.ribbon.RibbonClient;
+import org.springframework.cloud.openfeign.FeignClient;
+
+@FeignClient(name ="zuul")
+@RibbonClient(name="balance-service")
+public interface BalanceProxy {
+
+}

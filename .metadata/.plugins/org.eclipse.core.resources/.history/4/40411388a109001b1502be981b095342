@@ -1,0 +1,10 @@
+package com.product.repo;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.product.bean.ProductBean;
+
+public interface ProductRepo extends JpaRepository<ProductBean, Long>{
+
+	ProductBean findByDeptName(String deptName);
+}

@@ -1,0 +1,60 @@
+package com.balanceservice.bean;
+
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+/**
+ * Build a product microservice which maintains information of productid,
+ * productname, dept Id, dept name eg 11234, Long Sleeves,100, Shirts
+ **/
+
+@Entity
+@Table(name="Product")
+public class ProductBean  {
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	Long productId;
+	
+	@NotNull
+	@Column(unique = true, name="product_name")
+	String productName;
+	
+	
+	
+	private List<BalanceServiceBean> balance;
+	
+	
+	
+	public ProductBean() {
+	}
+	
+	public ProductBean(Long productId, String productName, Long deptId, String deptName) {
+		super();
+		this.productId = productId;
+		this.productName = productName;
+	}
+	
+	public Long getProductId() {
+		return productId;
+	}
+	public void setProductId(Long productId) {
+		this.productId = productId;
+	}
+	public String getProductName() {
+		return productName;
+	}
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+	
+	
+	
+}

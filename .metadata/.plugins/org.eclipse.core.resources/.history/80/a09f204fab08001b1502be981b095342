@@ -1,0 +1,62 @@
+package com.balanceservice.bean;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+/**
+ * Build a location microservice which maintains information of a
+ * location- locationId, locname, zipcode eg. 500, Irving, 75063
+**/
+
+@Entity
+@Table(name="Location")
+public class LocationBean implements Serializable {
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	Long locationId;
+	String locationName;
+	int zipcode;
+	
+	
+	public LocationBean() {
+	}
+	
+	public LocationBean(Long locationId, String locationName, int zipcode) {
+		super();
+		this.locationId = locationId;
+		this.locationName = locationName;
+		this.zipcode = zipcode;
+	}
+	
+	public Long getLocationId() {
+		return locationId;
+	}
+	public void setLocationId(Long locationId) {
+		this.locationId = locationId;
+	}
+	public String getLocationName() {
+		return locationName;
+	}
+	public void setLocationName(String locationName) {
+		this.locationName = locationName;
+	}
+	public int getZipcode() {
+		return zipcode;
+	}
+	public void setZipcode(int zipcode) {
+		this.zipcode = zipcode;
+	}
+	@Override
+	public String toString() {
+		return "LocationBean [locationId=" + locationId + ", locationName=" + locationName + ", zipcode=" + zipcode
+				+ "]";
+	}
+	
+	
+}

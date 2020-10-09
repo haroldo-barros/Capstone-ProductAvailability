@@ -1,0 +1,5 @@
+package com.balanceservice;
+
+public interface BalanceRepo {
+
+}

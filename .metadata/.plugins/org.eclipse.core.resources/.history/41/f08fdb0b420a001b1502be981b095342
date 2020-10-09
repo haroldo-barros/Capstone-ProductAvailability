@@ -1,0 +1,13 @@
+package com.product.repo;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.product.bean.Department;
+import com.product.bean.ProductBean;
+
+public interface ProductRepo extends JpaRepository<ProductBean, Long>{
+
+//	@Query(value = "SELECT * FROM Department WHERE department_name = ?1", nativeQuery = true)
+	ProductBean findProductByDeptName(String deptName);
+}

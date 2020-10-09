@@ -1,0 +1,47 @@
+package com.product.bean;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+
+@Embeddable
+public class BalanceId implements Serializable{
+
+	@Column(name="product_Id")
+	private Long productId;
+	
+	@Column(name="location_id")
+	private Long locationId;
+	
+	public BalanceId() {}
+
+	public BalanceId(Long productId, Long locationId) {
+		super();
+		this.productId = productId;
+		this.locationId = locationId;
+	}
+
+	public Long getProductId() {
+		return productId;
+	}
+
+	public void setProductId(Long productId) {
+		this.productId = productId;
+	}
+
+	public Long getLocationId() {
+		return locationId;
+	}
+
+	public void setLocationId(Long locationId) {
+		this.locationId = locationId;
+	}
+
+	@Override
+	public String toString() {
+		return "BalanceId [productId=" + productId + ", locationId=" + locationId + "]";
+	}
+	
+	
+}

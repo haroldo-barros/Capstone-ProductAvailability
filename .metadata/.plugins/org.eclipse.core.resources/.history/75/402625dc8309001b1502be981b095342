@@ -1,0 +1,77 @@
+package com.product.bean;
+
+import java.io.Serializable;
+
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
+import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
+/**
+ * Build a balance service, which has the available
+ * items in a given location. productid, location Id,
+ * balance e.g 11234, 500,10 implying there are 10 long sleeve shirts in zip 75063
+**/
+
+@Entity
+@Table(name="Balance")
+public class BalanceServiceBean{
+
+	@EmbeddedId
+	private BalanceId balanceId;
+	
+	@ManyToOne()
+	@MapsId("product_id")
+	@JoinColumn(name="product_id", referencedColumnName="balanceId")
+	Long productId;
+	
+	@ManyToOne()
+	@MapsId("location_id")
+	@JoinColumn(name="location_id", referencedColumnName="balanceId")
+	Long locationId;
+	
+	@NotNull
+	@Min(value=0)
+	Long balanceAmount;
+	
+	
+	public BalanceServiceBean() {
+	}
+	
+	public BalanceServiceBean(Long productId, Long locationId, Long balance) {
+		super();
+		this.productId = productId;
+		this.locationId = locationId;
+		this.balanceAmount = balance;
+	}
+	
+	public Long getProductId() {
+		return productId;
+	}
+	public void setProductId(Long productId) {
+		this.productId = productId;
+	}
+	public Long getLocationId() {
+		return locationId;
+	}
+	public void setLocationId(Long locationId) {
+		this.locationId = locationId;
+	}
+	public Long getBalance() {
+		return balanceAmount;
+	}
+	public void setBalance(Long balance) {
+		this.balanceAmount = balance;
+	}
+	@Override
+	public String toString() {
+		return "BalanceServiceBean [productId=" + productId + ", locationId=" + locationId + ", balance=" + balanceAmount
+				+ "]";
+	}
+	
+	
+}

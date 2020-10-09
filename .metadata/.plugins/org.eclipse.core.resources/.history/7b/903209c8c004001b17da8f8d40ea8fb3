@@ -1,0 +1,5 @@
+package com.availability.demo;
+
+public interface BalanceProxy {
+
+}
